@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -15,7 +15,7 @@
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container"> <a class="navbar-brand" href="{% url 'index' %}">Store</a>
+      <div class="container"> <a class="navbar-brand" href="{% url 'index' %}">Shopify</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
           aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> </button>
@@ -23,12 +23,15 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"> <a class="nav-link" href="{% url 'products:index' %}">Каталог
                 <i class="fas fa-shopping-bag"></i> </a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth/login.html">Войти
+            {% if user.is_authenticated %}
+              <li class="nav-item"> <a class="nav-link" href="{% url 'users:profile' %}">{{ user.first_name }} {{ user.last_name|first }}.
+                <i class="fas fa-user-circle"></i> </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="{% url 'users:logout' %}">Выйти
+                <i class="fas fa-sign-out-alt"></i></a></li>
+            {% else %}
+              <li class="nav-item"> <a class="nav-link" href="{% url 'users:login' %}">Войти
                 <i class="fas fa-sign-in-alt"></i></a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth/profile.html">Валерий
-                П. <i class="fas fa-user-circle"></i> </a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Выйти <i class="fas fa-sign-out-alt"></i></a>
-            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
