@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 from products.models import ProductCategory, Product, Basket
-# Create your views here.
 
 
 def index(request):
@@ -11,15 +12,26 @@ def index(request):
     return render(request, 'products/index.html', context)
 
 
-def products(request):
+def products(request, category_id=None, page=1):
     context = {
         'title': 'Shopify - Каталог',
-        'categories': ProductCategory.objects.all(),
-        'products': Product.objects.all()
+        'categories': ProductCategory.objects.all()
     }
+    if category_id:
+        products = Product.objects.filter(category_id=category_id)
+    else:
+        products = Product.objects.all()
+
+    paginator = Paginator(products, 3)
+    product_paginator = paginator.page(page)
+
+    context.update({
+        'products': product_paginator
+    })
     return render(request, 'products/products.html', context)
 
 
+@login_required
 def basket_add(request, product_id):
     current_page = request.META.get('HTTP_REFERER')
     product = Product.objects.get(id=product_id)
@@ -35,6 +47,7 @@ def basket_add(request, product_id):
         return HttpResponseRedirect(current_page)
 
 
+@login_required
 def basket_delete(request, id):
     basket = Basket.objects.get(id=id)
     basket.delete()

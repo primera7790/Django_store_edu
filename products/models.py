@@ -41,3 +41,6 @@ class Basket(models.Model):
 
     class Meta:
         verbose_name_plural = 'Baskets'
+
+    def sum(self):
+        return self.quantity * self.product.price
