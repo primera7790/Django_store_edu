@@ -23,10 +23,10 @@ def products(request, category_id=None, page=1):
         products = Product.objects.all()
 
     paginator = Paginator(products, 3)
-    product_paginator = paginator.page(page)
+    products_paginator = paginator.page(page)
 
     context.update({
-        'products': product_paginator
+        'products': products_paginator
     })
     return render(request, 'products/products.html', context)
 
