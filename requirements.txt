@@ -1,2 +1,11 @@
+asgiref==3.5.2
+dj-database-url==2.1.0
 Django==3.2.15
-Pillow
+gunicorn==22.0.0
+packaging==24.0
+Pillow==9.2.0
+psycopg2==2.9.9
+pytz==2022.4
+sqlparse==0.4.3
+typing_extensions==4.11.0
+whitenoise==6.6.0
