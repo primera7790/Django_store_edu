@@ -8,7 +8,7 @@
   - Библиотеки: &nbsp; `pillow` .
 
 ## Сайт<br>
-&nbsp; &nbsp; primera3472.pythonanywhere.com
+&nbsp; &nbsp; https://primera3472.pythonanywhere.com/
 
 
 ## Описание<br>
