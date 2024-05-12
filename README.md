@@ -5,7 +5,8 @@
   - Фреймворк: &nbsp; `django` ;
   - Сайт: &nbsp; `html` , `css` , `javascript` ;
   - База данных: &nbsp; `sqlite3` ;
-  - Библиотеки: &nbsp; `pillow` .
+  - Библиотеки: &nbsp; `pillow` ;
+  - Хостинг: &nbsp; `pythonanywhere` .
 
 ## Сайт<br>
 &nbsp; &nbsp; https://primera3472.pythonanywhere.com/
