@@ -18,7 +18,7 @@
 
 **Каталог**:
 <p>
-  <img width='800px' src='https://github.com/primera7790/Django_store_edu/blob/master/media/github_images/catalog1.PNG' alt='Каталог'>
+  <img width='800px' src='https://github.com/primera7790/Django_store_edu/blob/master/media/github_images/catalog2.PNG' alt='Каталог'>
 </p>
 
 **Личный кабинет с корзиной**:
